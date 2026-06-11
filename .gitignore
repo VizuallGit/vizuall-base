@@ -25,3 +25,11 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Bruger-filer (indeholder hashed passwords)
+/users/*.yaml
+
+# Indholds-assets (billeder, videoer — ikke en del af base)
+/public/assets/*
+!/public/assets/.gitkeep
+/public/assets/.meta/
