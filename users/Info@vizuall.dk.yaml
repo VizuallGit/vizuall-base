@@ -1,0 +1,11 @@
+name: Admin
+super: true
+id: ea563c20-57df-4f10-8b32-1e02307fbcfe
+password_hash: $2y$12$evoKp6UrxU1hLRBsAfi3C.2gafo0A4/4.8TNij/We3/vqs32jiXz6
+preferences:
+  collections:
+    pages:
+      view: tree
+      after_save: continue_editing
+  color_mode: light
+  theme: null

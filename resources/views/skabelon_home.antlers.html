@@ -1,0 +1,22 @@
+<section class="px-gutter grow py-900 bg-black/3 space-y-600">
+    <h1>Vizuall skabelon sections</h1>
+    <ul class="auto-grid auto-grid-md gap-600">
+        {{ collection from="sections" }}
+            <li class="relative border border-black/10 rounded-sm">
+                <div class="aspect-video bg-[#F3F4F6] flex items-center justify-center">
+                    {{ if image }}
+                    {{ glide :src="image" width="600" }}
+                        <img class="w-full h-full object-cover" src="{{ url }}" width="{{ width }}" height="{{ height }}">
+                    {{ /glide }}
+                    {{ else }}
+                        <b>Billede på vej</b>
+                    {{ endif }}
+                </div>
+                <div class="py-100 px-400">
+                    <a class="link-parent h6 font-medium!" href="{{ url }}">{{ title }}</a>
+                    <p class="text-xs opacity-60">{{ page_sections | count }} componenter</p>
+                </div>
+            </li>
+        {{ /collection }}
+    </ul>
+</section>

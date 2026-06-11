@@ -1,0 +1,24 @@
+name: Admin
+super: true
+id: ea17491f-7b87-45b2-9df4-a12ccaeef7f4
+password_hash: $2y$12$.2PmN./PZ1LDPI./blmwoeANefaeqoy6wNwhmfyU/psNVdclAjpAW
+preferences:
+  color_mode: dark
+  collections:
+    pages:
+      view: tree
+      after_save: continue_editing
+    blog:
+      view: list
+    reusable_sections:
+      view: list
+    events:
+      view: list
+      columns:
+        - title
+        - slug
+        - date
+        - status
+    sections:
+      view: tree
+      after_save: continue_editing

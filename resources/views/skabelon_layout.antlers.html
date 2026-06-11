@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        {{ partial:meta_info }}
+        {{ vite src="resources/css/site.css" }}
+        {{ if theme_settings.adobe_kits }}
+            {{ theme_settings.adobe_kits }}
+                {{ if url }}<link rel="stylesheet" href="{{ url }}">{{ /if }}
+            {{ /theme_settings.adobe_kits }}
+        {{ /if }}
+        {{ yield_minified }}
+        {{ if theme_settings.custom_css }}
+            <style>
+                {{ theme_settings.custom_css }}
+            </style>
+        {{ endif }}
+    </head>
+    <body class="flex flex-col min-h-screen">
+        {{ if get:preview_section }}<style>html,body,main{margin:0;padding:0;overflow:hidden;height:fit-content}</style>{{ /if }}
+        {{ if !get:preview_section }}
+            <header class="px-gutter py-400 flex flex-wrap gap-gutter items-center justify-between border-b border-black/10">
+ <a href="/"><svg class="h-300 w-auto" xmlns="http://www.w3.org/2000/svg" width="600" height="95" viewBox="0 0 600 95" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.635071C0 0.984396 5.27485 17.9413 11.7225 38.3179C18.1695 58.6937 24.7824 79.6311 26.4179 84.8452L29.3907 94.3241L44.4751 94.132C57.0072 93.972 59.6582 93.7577 60.1452 92.8676C60.7688 91.7274 89.3921 1.31872 89.3921 0.489341C89.3921 0.220025 83.6145 0 76.5533 0H63.7144L62.2698 4.82197C53.3771 34.5053 44.7082 62.757 44.5437 62.5927C44.3428 62.392 25.7449 0.705079 25.7449 0.238598C25.7449 0.107155 19.9523 0 12.8725 0C5.79261 0 0 0.285746 0 0.635071ZM105.483 93.9391H131.943L132.31 0H105.115L105.483 93.9391ZM152.324 21.4095L194.452 21.7882L150.918 73.9369L150.894 94.3084L229.201 93.9391V72.5081L207.569 72.3188C195.671 72.2152 185.936 71.9573 185.936 71.7466C185.936 71.5359 195.268 59.7738 206.675 45.6094L227.414 19.8551V0H152.324V21.4095ZM246.9 33.0394C247.178 63.4871 247.313 66.4496 248.628 70.8101C250.518 77.0751 252.973 81.1148 257.408 85.2588C264.689 92.0625 273.908 95.0156 287.814 94.9999C302.331 94.9835 310.35 92.4725 317.903 85.5774C322.613 81.277 325.125 77.2229 327.051 70.8101C328.357 66.4617 328.497 63.4064 328.784 33.0394L329.095 0H302.545L302.345 32.3251C302.153 63.4871 302.092 64.753 300.655 67.5076C298.412 71.8095 294.154 73.9404 287.843 73.9204C281.629 73.9004 278.064 72.2967 275.443 68.3419L273.54 65.4702L273.141 0H246.6L246.9 33.0394ZM369.004 0.892957C369.001 1.38444 362.451 22.3596 354.45 47.5053C346.448 72.651 340.119 93.4733 340.385 93.7777C340.651 94.082 346.462 94.2427 353.297 94.1348L365.725 93.9391L375.06 63.0978C380.195 46.1345 384.56 32.0915 384.762 31.8907C384.963 31.69 388.483 42.6755 392.585 56.3027C396.687 69.9307 400.96 84.0537 402.081 87.6884L404.119 94.2963H416.558C423.4 94.2963 429.148 94.0534 429.331 93.7577C429.515 93.4612 423.039 72.2445 414.941 46.6095L400.217 0H384.614C372.611 0 369.009 0.205737 369.004 0.892957ZM445.888 93.9391H515.256V72.5081L471.99 72.1302V0H445.52L445.888 93.9391ZM531.704 93.9391L600 94.3099V72.1509H557.807V0H531.337L531.704 93.9391Z" fill="currentColor"/>
+<script xmlns=""/></svg></a>
+                <nav>
+                    <menu class="flex items-center gap-400">
+                        {{ collection from="sections" }}
+                        <li><a href="{{ url }}">{{ title }}</a></li>
+                        {{ /collection }}
+                    </menu>
+                </nav>
+               
+            </header>
+        {{ /if }}
+        <main class="grow flex flex-col">
+            {{ template_content }}
+        </main>
+        {{ vite src="resources/js/site.js" }}
+        {{ yield_scripts }}
+        {{ if live_preview }}{{ partial:live_preview }}{{ /if }}
+    </body>
+</html>
+
+{{ partial:layout_style_push }}

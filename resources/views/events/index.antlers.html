@@ -1,0 +1,39 @@
+<section class="[ events-index ] wrapper bg-primary-100 py-1000 space-y-gutter">
+    <div class="flow-y page-content">
+        {{ main_content }}
+            {{ partial src="sets/{type}" }}
+        {{ /main_content }}
+    </div>
+    {{ collection from="events" paginate="12" as="items" }}
+        <ul class="auto-grid auto-grid-md gap-500">
+            {{ items }}
+                {{ partial:components/event_card }}
+            {{ /items }}
+        </ul>
+        {{ paginate }}
+            {{ if total_pages > 1 }}
+            <nav class="flex justify-center gap-200 mt-600" aria-label="Pagination">
+                {{ if prev_page }}
+                    <a href="{{ prev_page }}" class="btn">&larr; Forrige</a>
+                {{ /if }}
+                {{ if next_page }}
+                    <a href="{{ next_page }}" class="btn">Næste &rarr;</a>
+                {{ /if }}
+            </nav>
+            {{ /if }}
+        {{ /paginate }}
+    {{ /collection }}
+</section>
+
+{{ style_push }}
+    <style>
+        @scope(.events-index){
+            .event-card{
+                --color-bg: var(--color-tertiary-700);
+                --color-text: var(--color-primary-50);
+                --color-inner-bg: var(--color-primary-200);
+            }
+                
+        }
+    </style>
+{{ /style_push }}
