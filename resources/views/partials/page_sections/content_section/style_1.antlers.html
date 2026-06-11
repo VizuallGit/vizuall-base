@@ -1,0 +1,33 @@
+<article id="id-{{ id }}" class="[ content_sectiion-style-1 ] wrapper space-y-gutter bg-(--color-bg) text-(--color-text)" aria-labelledby="{{ headline | slugify }}">
+    <div class="[ content ] max-w-[70ch]">
+        <h1 class="sr-only">{{ headline }}</h1>
+        {{ text }}
+    </div>
+    <ul class="[ list ] grid md:grid-cols-4 gap-gutter">
+        {{ list }}
+            <li class="prose-p:opacity-70 prose-h3:text-300 flow-y pt-400">
+                <h3>{{ headline }}</h3>
+                {{ text }}
+            </li>
+        {{ /list }}
+    </ul>
+</article>
+
+{{ style_push }}
+    <style>
+        #id-{{ id }}{
+            {{ partial:color_scheme_style }}
+            {{ partial:spacing_sides_css }}
+
+            .list li{
+                border-top: 1px solid {{ settings.color_scheme.highlighted_color }};
+            }
+        }
+        {{ if settings.css }}{{ scope_css :css="settings.css" :id="id" }}{{ /if }}
+        @scope(.content_sectiion-style-1){
+            :scope {
+              
+            }
+        }
+    </style>
+{{ /style_push }}
